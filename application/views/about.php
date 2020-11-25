@@ -11,8 +11,7 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ml-auto"><p class="lead">Programador web especializado en la programación frontend</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+                    <div style="margin-left:20%;"><p class="lead">Programador web especializado en la programación frontend</p></div>
                 </div>
                 
             </div>
