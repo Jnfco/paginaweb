@@ -40,9 +40,16 @@ public function __construct() {
 		$this->load->view('footer');
 	}
 	public function verPost(){
+	
 		$id = $this->input->post("id");
 		$res['fullPost'] = $this->Modelo->verPost($id);
 		$this->load->view("fullPost",$res);
 		
+	}
+
+	public function valorar(){
+		$id = $this->input->post("id");
+		$valoracion =$this->input->post("valoracion");
+		$res =$this->Modelo->valorar($id,$valoracion);
 	}
 }

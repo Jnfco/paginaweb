@@ -31,5 +31,24 @@ class Modelo extends CI_Model{
         $this->db->where("id",$id);
         return $this->db->get("post")->result();
     }
+
+   
+
+    function updatePostVisit($id,$visitas){
+        $data= array("visitas",$visitas);
+        $this->db->where("id",$id);
+        $this->db->update("post",$data);
+    }
+
+    function valorar($id,$valoracion){
+        //$data =array("valoracion",$valoracion);
+        //$this->db->where("id",$id);
+        //$this->db->update("post",$data);
+
+        $sql ="update post set valoracion = '".$valoracion."'  where id = '".$id."';";
+        $res = $this->db->query($sql);
+        return $res;
+
+    }
 }
 ?>
