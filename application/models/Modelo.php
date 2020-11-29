@@ -34,10 +34,10 @@ class Modelo extends CI_Model{
 
    
 
-    function updatePostVisit($id,$visitas){
-        $data= array("visitas",$visitas);
-        $this->db->where("id",$id);
-        $this->db->update("post",$data);
+    function visitas($id,$visitas){
+        $sql ="update post set visitas = '".$visitas."'  where id = '".$id."';";
+        $res = $this->db->query($sql);
+        return $res;
     }
 
     function valorar($id,$valoracion){

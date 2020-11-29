@@ -6,7 +6,8 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		//Cambiar el nombre de moelo a modelo
         $this->load->model('Modelo');
-        $this->load->helper('url');
+		$this->load->helper('url');
+		$this->load->helper('captcha');
         //$cantidadBlog = 2;
         header("Content-Type: text/html; charset=utf-8");
         header("Accept-Encoding: gzip | compress | deflate | br| identity| * ");
