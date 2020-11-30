@@ -2,9 +2,9 @@
 
 
 
-<div style="width:50%;margin-left:25%;" id="contenedor">
+<div style="width:100%;" id="contenedor">
     <h2 style="margin-top:2%" class="page-section-heading text-center text-uppercase text-secondary mb-0">Posts</h2>
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" style ="width:50%;margin-left:25%;">
 
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -112,7 +112,7 @@
 
 
     </section>
-</div>
+
 
 <script type="text/javascript">
 var base_url = '<?=base_url()?>';

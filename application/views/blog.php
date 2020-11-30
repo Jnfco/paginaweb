@@ -1,77 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Masthead-->
+<header class="masthead  text-black text-center">
+    <div>
+        <!-- Masthead Avatar Image-->
+
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">Blog</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+    </div>
+</header>
+
+<div>
+
+    <div id="contenedor">
+        <div style="width:50%;margin-left:25%;">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+
+                        <img src="https://www.webnode.es/blog/files/2019/05/blog2.png" class="d-block w-100" alt="..."
+                            style="height:600px;width:800">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <p>Últimos posts del blog</p>
+                        </div>
+                    </div>
+
+                    <?php foreach($posts as $row):?>
+                    <?php if($row->enabled == 1) {?>
+                    <div class="carousel-item">
+                        <img src="<?=$row->imagen ?>" class="d-block w-100" alt="..." style="height:600px;width:800">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><?=$row->titulo ?></h5>
+                            <!-- <a class="btn btn-xl btn-outline-light" onclick="verPost(<?=$row->titulo?>)">Ver post</a> -->
+                            <button
+                                style="background-color: #8c1c2f;  border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin-left:20px"
+                                onclick='verPost("<?=$row->id?>","<?=$row->visitas?>")'>Ver
+                                noticia</button>
+                        </div>
+
+                    </div>
+                    <?php }?>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="<?=base_url()?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="css/styles.css" rel="stylesheet" />
-<!--link rel="stylesheet" href="/resources/demos/style.css"-->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                    <?php endforeach; ?>
 
-<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script-->
-<!--link href="<?=base_url()?>css/agency.css" rel="stylesheet"-->
-
-
-<script src="<?=base_url()?>js/jquery.form.min.js"></script>
-
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Juan abello - página web</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top" style="margin-top:3%">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="/paginaweb">JA - Página</a>
-                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/paginaweb/#portfolio">Portafolio</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/paginaweb/#about">Acerca de</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/paginaweb/#contact">Contacto</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/paginaweb/index.php/Welcome/blog">Blog</a></li>
-                        <a class="btn btn-xl btn-outline-light" href="/paginaweb/intranet">
-                        
-                       Intranet
-                    </a>
-                    </ul>
                 </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead  text-white text-center" style="background-color:#8c1c2f">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="" />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Juan Abello</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
+        </div>
+
+        <!-- Sección de noticias -->
+
+        <!-- Div de las 2 noticias -->
+        <div style=" display:flex;flex-direction:column;flex-wrap: wrap;gap: 12px;">
+
+            <!-- Div de las noticias populares -->
+
+            <div
+                style=" display:flex;flex-direction:column;flex-wrap: wrap;gap: 20px;width:70%;margin-left:10%;margin-top:10%">
+                <h2 style="margin-left:40%"> Noticias populares</h2>
+                <?php foreach ($populares as $row) {?>
+                <!-- Div de una noticia -->
+                <div style="display:flex;flex-direction:column">
+                    <div
+                        style="display:flex;flex-direction:row;flex-wrap: wrap;gap: 12px; border-radius: 25px;border: 2px solid #8c1c2f; padding: 20px;">
+                        <div>
+                            <img src="<?=$row->imagen?>" width="300px" height="300px">
+                            <button  onclick='verPost("<?=$row->id?>","<?=$row->visitas?>")'
+                                style="background-color: #8c1c2f;  border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin-left:20px">
+                                Ver noticia
+                            </button>
+                        </div>
+                        <h6> Título: <?=$row->titulo ?></h6>
+                        <div
+                            style="margin-left:5%;display:flex;flex-direction:row;display: inline-flex;flex-wrap: wrap;gap: 12px;">
+                            <div>Visitas: <?=$row->visitas ?></div>
+                            <div> Valoración: <?=$row->valoracion ?>/5</div>
+                        </div>
+
+
+                    </div>
+
                 </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Programador web - Frontend</p>
+                <hr>
+                <?php } ?>
             </div>
-        </header>
+            <hr>
+            <!-- Div de las noticias mas recientes -->
+            <div
+                style=" display:flex;flex-direction:column;flex-wrap: wrap;gap: 20px;width:70%;margin-left:10%;margin-top:20px">
+                <h2 style="margin-left:40%"> Noticias más recientes</h2>
+                <?php foreach ($recientes as $row) {?>
+                <!-- Div de una noticia -->
+                <div style="display:flex;flex-direction:column">
+                    <div
+                        style="display:flex;flex-direction:row;flex-wrap: wrap;gap: 12px; border-radius: 25px;border: 2px solid #8c1c2f; padding: 20px;">
+                        <div>
+                            <img src="<?=$row->imagen?>" width="300px" height="300px">
+                            <button onclick ="verpost(<?=$row->id,$row->visitas?>)"
+                                style="background-color: #8c1c2f;  border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin-left:20px">
+                                Ver noticia
+                            </button>
+                        </div>
+                        <h6> Título: <?=$row->titulo ?></h6>
+                        <div
+                            style="margin-left:5%;display:flex;flex-direction:row;display: inline-flex;flex-wrap: wrap;gap: 12px;">
+                            <div>Visitas: <?=$row->visitas ?></div>
+                            <div> Valoración: <?=$row->valoracion ?>/5</div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <hr>
+                <?php } ?>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+    function verPost(id, visitas) {
+
+        var visitasN = parseInt(visitas) + 1;
+        console.log("Visitas antes: ", visitas);
+        console.log("Visitas despues", visitasN);
+
+
+        $.post(base_url + "index.php/Welcome/verPost", {
+            id: id
+        }, function(html, data) {
+            $("#contenedor").html(html, data);
+            $("#contenedor").show("fast");
+        });
+        $.post(base_url + "index.php/Welcome/visita", {
+            id: id,
+            visitas: visitasN
+        });
+    }
+    </script>

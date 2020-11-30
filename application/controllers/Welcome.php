@@ -114,6 +114,8 @@ public function __construct() {
 	
 	public function blog(){
 		$res['posts'] = $this->Modelo->obtenerPosts();
+		$res['populares'] = $this->Modelo->obtenerPopulares();
+		$res['recientes'] = $this->Modelo->obtenerRecientes();
 		$this->load->view("blog",$res);
 	}
 }

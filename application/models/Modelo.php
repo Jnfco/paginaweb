@@ -50,5 +50,22 @@ class Modelo extends CI_Model{
         return $res;
 
     }
+
+    function obtenerPopulares(){
+        $this->db->select("*");
+        $this->db->order_by("valoracion","desc");
+        $this->db->limit(2);
+        return $this->db->get("post")->result();
+
+
+    }
+
+    function obtenerRecientes(){
+        $this->db->select("*");
+        $this->db->order_by("modificado","desc");
+        $this->db->limit(2);
+        return $this->db->get("post")->result();
+
+    }
 }
 ?>
